@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💕 My Bestie World 💕</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Comic Sans MS","Trebuchet MS",sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(
+        135deg,
+        #ffb5dc,
+        #b9edff,
+        #ffe7a8,
+        #dcbcff
+    );
+    background-size:400% 400%;
+    animation:bgAnimation 12s ease infinite;
+    color:#51284f;
+}
+
+@keyframes bgAnimation{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Floating decorations */
+
+.floating{
+    position:fixed;
+    z-index:0;
+    pointer-events:none;
+    font-size:40px;
+    animation:float 5s ease-in-out infinite;
+}
+
+.f1{left:2%;top:10%}
+.f2{right:3%;top:18%;animation-delay:1s}
+.f3{left:4%;bottom:15%;animation-delay:2s}
+.f4{right:4%;bottom:10%;animation-delay:3s}
+.f5{left:45%;top:4%;animation-delay:1.5s}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) rotate(-8deg);
+    }
+    50%{
+        transform:translateY(-25px) rotate(10deg);
+    }
+}
+
+.container{
+    width:94%;
+    max-width:1100px;
+    margin:auto;
+    padding:25px 0 60px;
+    position:relative;
+    z-index:2;
+}
+
+/* Header */
+
+.hero{
+    text-align:center;
+    padding:30px 20px;
+    background:rgba(255,255,255,.9);
+    border:5px solid #ff8fc8;
+    border-radius:45px;
+    box-shadow:0 20px 50px rgba(100,40,100,.2);
+}
+
+.hero h1{
+    color:#ec4199;
+    font-size:clamp(35px,7vw,70px);
+    text-shadow:
+        3px 3px white,
+        6px 6px #ffc5e4;
+    animation:titleMove 2s infinite;
+}
+
+@keyframes titleMove{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+
+.hero p{
+    font-size:19px;
+    margin-top:10px;
+}
+
+/* Moving characters */
+
+.characters{
+    height:145px;
+    max-width:600px;
+    margin:auto;
+    position:relative;
+}
+
+.character{
+    position:absolute;
+    bottom:0;
+    font-size:85px;
+    filter:drop-shadow(0 8px 4px rgba(0,0,0,.15));
+}
+
+.c1{
+    left:18%;
+    animation:characterDance 1.5s infinite;
+}
+
+.c2{
+    right:18%;
+    animation:characterDance 1.7s infinite reverse;
+}
+
+@keyframes characterDance{
+    0%,100%{
+        transform:rotate(-7deg) translateY(0);
+    }
+    50%{
+        transform:rotate(7deg) translateY(-18px);
+    }
+}
+
+/* Panels */
+
+.panel{
+    background:rgba(255,255,255,.94);
+    border-radius:35px;
+    padding:30px;
+    margin-top:25px;
+    box-shadow:0 15px 35px rgba(80,40,100,.15);
+    border:4px solid #ffc2df;
+}
+
+.panel h2{
+    text-align:center;
+    color:#df4397;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* Inputs */
+
+.input{
+    width:100%;
+    padding:16px 20px;
+    border:3px solid #f1c6df;
+    border-radius:20px;
+    font-size:18px;
+    outline:none;
+    font-family:inherit;
+    margin-bottom:15px;
+}
+
+.input:focus{
+    border-color:#a45cff;
+    box-shadow:0 0 0 4px #eadcff;
+}
+
+.main-btn{
+    width:100%;
+    border:none;
+    padding:16px;
+    border-radius:30px;
+    color:white;
+    font-size:19px;
+    font-weight:bold;
+    cursor:pointer;
+    background:linear-gradient(
+        90deg,
+        #ff4fa9,
+        #9d5cff,
+        #43cfff
+    );
+    background-size:200%;
+    animation:buttonMove 3s infinite;
+    box-shadow:0 8px 20px rgba(130,60,180,.25);
+}
+
+.main-btn:hover{
+    transform:scale(1.03);
+}
+
+@keyframes buttonMove{
+    0%{background-position:0}
+    50%{background-position:100%}
+    100%{background-position:0}
+}
+
+/* Category cards */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.category-card{
+    padding:25px;
+    border-radius:25px;
+    background:#fff7fc;
+    border:3px solid #efd4e7;
+    text-align:center;
+}
+
+.category-card h3{
+    color:#8b48aa;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.category-card p{
+    font-size:14px;
+    color:#876b84;
+}
+
+/* Favourite option creator */
+
+.creator-options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:15px;
+}
+
+.creator-option{
+    padding:15px;
+    border:3px solid #ead8ed;
+    border-radius:20px;
+    background:white;
+}
+
+.creator-option label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.creator-option input{
+    width:100%;
+    padding:10px;
+    border:2px solid #ead8ed;
+    border-radius:12px;
+    font-family:inherit;
+}
+
+/* Quiz */
+
+.progress-card{
+    margin-top:25px;
+    background:white;
+    padding:18px;
+    border-radius:25px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+}
+
+.progress{
+    height:18px;
+    margin-top:10px;
+    background:#ffe0ee;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    width:0;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        #ff48a5,
+        #a05aff,
+        #45caff
+    );
+    transition:.5s;
+}
+
+.question-card{
+    margin-top:25px;
+    padding:25px;
+    background:white;
+    border-radius:35px;
+    border:4px solid #ffc3df;
+    box-shadow:0 15px 30px rgba(100,40,100,.12);
+}
+
+.category{
+    display:inline-block;
+    background:#ffe0ef;
+    color:#df4397;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.question{
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:22px;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.option{
+    border:4px solid #ead7ef;
+    border-radius:25px;
+    overflow:hidden;
+    background:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.option:hover{
+    transform:translateY(-8px) scale(1.02);
+    border-color:#ff69b4;
+    box-shadow:0 12px 25px rgba(220,70,150,.2);
+}
+
+.option img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    display:block;
+}
+
+.option-name{
+    padding:13px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.option.correct{
+    border-color:#35cc79;
+    background:#ddffe9;
+    animation:correct .6s;
+}
+
+.option.wrong{
+    border-color:#ff5b67;
+    background:#ffe0e0;
+    animation:shake .5s;
+}
+
+@keyframes correct{
+    50%{transform:scale(1.06)}
+}
+
+@keyframes shake{
+    25%{transform:translateX(-10px)}
+    50%{transform:translateX(10px)}
+    75%{transform:translateX(-5px)}
+}
+
+/* Result */
+
+.result{
+    text-align:center;
+    padding:40px 20px;
+    margin-top:30px;
+    background:white;
+    border-radius:40px;
+    border:5px solid #ff9dcc;
+    box-shadow:0 20px 50px rgba(100,40,100,.2);
+}
+
+.result-character{
+    font-size:95px;
+    animation:celebrate 1s infinite;
+}
+
+@keyframes celebrate{
+    0%,100%{transform:rotate(-8deg) scale(1)}
+    50%{transform:rotate(8deg) scale(1.15)}
+}
+
+.result h2{
+    color:#e63e96;
+    font-size:34px;
+}
+
+.big-score{
+    font-size:70px;
+    font-weight:bold;
+    color:#8954e8;
+    margin:10px;
+}
+
+.message{
+    font-size:20px;
+    margin:15px auto 25px;
+    max-width:700px;
+}
+
+/* Leaderboard */
+
+.score-list{
+    margin-top:20px;
+}
+
+.score-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fff5fb;
+    border:3px solid #f3d4e7;
+    border-radius:20px;
+    padding:14px 18px;
+    margin:10px 0;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.score-item:nth-child(1){
+    background:#fff1b8;
+}
+
+.score-item:nth-child(2){
+    background:#eeeaff;
+}
+
+.score-item:nth-child(3){
+    background:#ffe9df;
+}
+
+.clear-btn{
+    margin-top:15px;
+    border:none;
+    padding:12px 20px;
+    border-radius:20px;
+    background:#ff6875;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* Confetti */
+
+.confetti{
+    position:fixed;
+    top:-20px;
+    z-index:999;
+    pointer-events:none;
+    animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:650px){
+
+    .categories,
+    .creator-options,
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .option img{
+        height:210px;
+    }
+
+    .character{
+        font-size:65px;
+    }
+
+    .c1{left:8%}
+    .c2{right:8%}
+
+    .panel{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="floating f1">💖</div>
+<div class="floating f2">🧸</div>
+<div class="floating f3">🌸</div>
+<div class="floating f4">✨</div>
+<div class="floating f5">💫</div>
+
+
+<div class="container">
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>💕 BESTIE WORLD 💕</h1>
+
+    <p>
+        Guess My Favourites! 😍
+    </p>
+
+    <div class="characters">
+        <div class="character c1">👧🏻</div>
+        <div class="character c2">👧🏽</div>
+    </div>
+
+    <p>
+        🍕 Food • 🏖️ Places • 🎨 Cartoons • 🎵 Music • 💖 More!
+    </p>
+
+</section>
+
+
+<!-- START -->
+
+<section class="panel" id="startPanel">
+
+    <h2>🌸 Welcome Bestie! 🌸</h2>
+
+    <p style="text-align:center;margin-bottom:20px;">
+        First create your own Favourite Quiz.
+        <br>
+        Later your friends can guess your favourites! 💕
+    </p>
+
+    <input
+        id="ownerName"
+        class="input"
+        placeholder="✨ Enter your name..."
+    >
+
+    <button
+        class="main-btn"
+        onclick="startCreator()">
+
+        💖 Create My Favourite Quiz
+
+    </button>
+
+    <button
+        class="main-btn"
+        style="margin-top:12px;background:linear-gradient(90deg,#7b5cff,#36bfff)"
+        onclick="openFriendMode()">
+
+        👯‍♀️ I Want To Guess My Friend's Favourites
+
+    </button>
+
+</section>
+
+
+<!-- CREATOR -->
+
+<section
+    class="panel hidden"
+    id="creatorPanel">
+
+    <h2>
+        💕 <span id="creatorNameTitle"></span>'s Favourite World 💕
+    </h2>
+
+    <p style="text-align:center;margin-bottom:20px;">
+        Select your favourite option in every category.
+        <br>
+        Your friends will have to guess them! 😜
+    </p>
+
+
+    <div class="categories">
+
+        <div class="category-card">
+            <h3>🍕 Food</h3>
+            <p>Pizza / Burger / Noodles / Ice Cream</p>
+
+            <select class="input creator-select" data-category="food">
+                <option value="">Choose your favourite</option>
+                <option value="0">🍕 Pizza</option>
+                <option value="1">🍔 Burger</option>
+                <option value="2">🍜 Noodles</option>
+                <option value="3">🍦 Ice Cream</option>
+            </select>
+        </div>
+
+
+        <div class="category-card">
+            <h3>🏖️ Place</h3>
+            <p>Beach / Mountains / City / Forest</p>
+
+            <select class="input creator-select" data-category="place">
+                <option value="">Choose your favourite</option>
+                <option value="0">🏖️ Beach</option>
+                <option value="1">🏔️ Mountains</option>
+                <option value="2">🌆 City</option>
+                <option value="3">🌳 Forest</option>
+            </select>
+        </div>
+
+
+        <div class="category-card">
+            <h3>🐻 Cartoon</h3>
+            <p>Bear / Bunny / Kitty / Puppy</p>
+
+            <select class="input creator-select" data-category="cartoon">
+                <option value="">Choose your favourite</option>
+                <option value="0">🐻 Bear</option>
+                <option value="1">🐰 Bunny</option>
+                <option value="2">🐱 Kitty</option>
+                <option value="3">🐶 Puppy</option>
+            </select>
+        </div>
+
+
+        <div class="category-card">
+            <h3>🍰 Sweet</h3>
+            <p>Cake / Donut / Cookies / Cupcake</p>
+
+            <select class="input creator-select" data-category="sweet">
+                <option value="">Choose your favourite</option>
+                <option value="0">🍰 Cake</option>
+                <option value="1">🍩 Donut</option>
+                <option value="2">🍪 Cookies</option>
+                <option value="3">🧁 Cupcake</option>
+            </select>
+        </div>
+
+
+        <div class="category-card">
+            <h3>🌈 Color</h3>
+            <p>Pink / Blue / Purple / Green</p>
+
+            <select class="input creator-select" data-category="color">
+                <option value="">Choose your favourite</option>
+                <option value="0">💗 Pink</option>
+                <option value="1">💙 Blue</option>
+                <option value="2">💜 Purple</option>
+                <option value="3">💚 Green</option>
+            </select>
+        </div>
+
+
+        <div class="category-card">
+            <h3>🎬 Fun</h3>
+            <p>Movie / Games / Music / Reading</p>
+
+            <select class="input creator-select" data-category="fun">
+                <option value="">Choose your favourite</option>
+                <option value="0">🎬 Movie</option>
+                <option value="1">🎮 Games</option>
+                <option value="2">🎵 Music</option>
+                <option value="3">📚 Reading</option>
+            </select>
+        </div>
+
+
+        <div class="category-card">
+            <h3>🍿 Snack</h3>
+            <p>Popcorn / Chocolate / Fries / Fruits</p>
+
+            <select class="input creator-select" data-category="snack">
+                <option value="">Choose your favourite</option>
+                <option value="0">🍿 Popcorn</option>
+                <option value="1">🍫 Chocolate</option>
+                <option value="2">🍟 Fries</option>
+                <option value="3">🍓 Fruits</option>
+            </select>
+        </div>
+
+
+        <div class="category-card">
+            <h3>💖 Friendship</h3>
+            <p>Money / Fame / Winning / Friendship</p>
+
+            <select class="input creator-select" data-category="friendship">
+                <option value="">Choose your favourite</option>
+                <option value="0">💰 Money</option>
+                <option value="1">👑 Fame</option>
+                <option value="2">🏆 Winning</option>
+                <option value="3">🤝 Friendship</option>
+            </select>
+        </div>
+
+    </div>
+
+
+    <button
+        class="main-btn"
+        style="margin-top:25px"
+        onclick="saveFavouriteQuiz()">
+
+        💾 Save My Favourites
+
+    </button>
+
+</section>
+
+
+<!-- FRIEND NAME -->
+
+<section
+    class="panel hidden"
+    id="friendNamePanel">
+
+    <h2>👯‍♀️ Bestie Challenge 👯‍♀️</h2>
+
+    <p style="text-align:center;margin-bottom:20px;">
+        Now let's see how well you know
+        <strong id="friendTargetName"></strong>! 😍
+    </p>
+
+    <input
+        class="input"
+        id="playerName"
+        placeholder="✨ Your name..."
+    >
+
+    <button
+        class="main-btn"
+        onclick="startFriendQuiz()">
+
+        🚀 Start Guessing!
+
+    </button>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section
+    class="hidden"
+    id="quizPanel">
+
+    <div class="progress-card">
+
+        <div class="progress-info">
+            <span>💖 Friendship Meter</span>
+            <span id="progressText">0 / 8</span>
+        </div>
+
+        <div class="progress">
+            <div
+                class="progress-bar"
+                id="progressBar">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="quiz"></div>
+
+</section>
+
+
+<!-- RESULT -->
+
+<section
+    class="result hidden"
+    id="resultPanel">
+
+    <div
+        class="result-character"
+        id="resultCharacter">
+        👑
+    </div>
+
+    <h2>🎉 Friendship Result 🎉</h2>
+
+    <div
+        class="big-score"
+        id="finalScore">
+        0 / 8
+    </div>
+
+    <p
+        class="message"
+        id="resultMessage">
+    </p>
+
+    <button
+        class="main-btn"
+        onclick="showScoreBoard()">
+
+        🏆 See Friends Score List
+
+    </button>
+
+</section>
+
+
+<!-- SCORE BOARD -->
+
+<section
+    class="panel hidden"
+    id="scorePanel">
+
+    <h2>🏆 Friends Score List 🏆</h2>
+
+    <p style="text-align:center;">
+        See who knows your favourites best! 💕
+    </p>
+
+    <div
+        class="score-list"
+        id="scoreList">
+    </div>
+
+    <button
+        class="clear-btn"
+        onclick="clearScores()">
+
+        🗑️ Clear Score List
+
+    </button>
+
+</section>
+
+
+</div>
+
+
+<script>
+
+/*
+===========================================================
+DATA
+===========================================================
+*/
+
+const categories = [
+
+    {
+        key:"food",
+        title:"🍕 FOOD",
+        question:"Which food is my favourite? 😋",
+        options:[
+            ["🍕 Pizza","https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80"],
+            ["🍔 Burger","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"],
+            ["🍜 Noodles","https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80"],
+            ["🍦 Ice Cream","https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80"]
+        ]
+    },
+
+    {
+        key:"place",
+        title:"🏖️ PLACE",
+        question:"Where would I love to go? ✈️",
+        options:[
+            ["🏖️ Beach","https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80"],
+            ["🏔️ Mountains","https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80"],
+            ["🌆 City","https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=700&q=80"],
+            ["🌳 Forest","https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=80"]
+        ]
+    },
+
+    {
+        key:"cartoon",
+        title:"🐻 CARTOON",
+        question:"Which cute character would I choose? 🥰",
+        options:[
+            ["🐻 Bear","https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=700&q=80"],
+            ["🐰 Bunny","https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=700&q=80"],
+            ["🐱 Kitty","https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=700&q=80"],
+            ["🐶 Puppy","https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=80"]
+        ]
+    },
+
+    {
+        key:"sweet",
+        title:"🍰 SWEET",
+        question:"Which sweet is my favourite? 🍰",
+        options:[
+            ["🍰 Cake","https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"],
+            ["🍩 Donut","https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80"],
+            ["🍪 Cookies","https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80"],
+            ["🧁 Cupcake","https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=700&q=80"]
+        ]
+    },
+
+    {
+        key:"color",
+        title:"🌈 COLOR",
+        question:"Which color do I love? 🎨",
+        options:[
+            ["💗 Pink","https://images.unsplash.com/photo-1528459105426-b9548367069b?auto=format&fit=crop&w=700&q=80"],
+            ["💙 Blue","https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=700&q=80"],
+            ["💜 Purple","https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80"],
+            ["💚 Green","https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=80"]
+        ]
+    },
+
+    {
+        key:"fun",
+        title:"🎬 FUN",
+        question:"What do I enjoy most? 😍",
+        options:[
+            ["🎬 Movies","https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80"],
+            ["🎮 Games","https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=80"],
+            ["🎵 Music","https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=700&q=80"],
+            ["📚 Reading","https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=700&q=80"]
+        ]
+    },
+
+    {
+        key:"snack",
+        title:"🍿 SNACK",
+        question:"What snack would I choose? 😋",
+        options:[
+            ["🍿 Popcorn","https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&fit=crop&w=700&q=80"],
+            ["🍫 Chocolate","https://images.unsplash.com/photo-1575377222312-dd1a10f24bb8?auto=format&fit=crop&w=700&q=80"],
+            ["🍟 Fries","https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"],
+            ["🍓 Fruits","https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=700&q=80"]
+        ]
+    },
+
+    {
+        key:"friendship",
+        title:"💖 FRIENDSHIP",
+        question:"What matters most to me? 🥹",
+        options:[
+            ["💰 Money","https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=700&q=80"],
+            ["👑 Fame","https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80"],
+            ["🏆 Winning","https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80"],
+            ["🤝 Friendship","https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=700&q=80"]
+        ]
+    }
+
+];
+
+
+/*
+===========================================================
+VARIABLES
+===========================================================
+*/
+
+let ownerName = "";
+let playerName = "";
+
+let favourites = {};
+
+let score = 0;
+let answered = 0;
+
+
+/*
+===========================================================
+HELPER
+===========================================================
+*/
+
+function hideAll(){
+
+    document.getElementById("startPanel")
+        .classList.add("hidden");
+
+    document.getElementById("creatorPanel")
+        .classList.add("hidden");
+
+    document.getElementById("friendNamePanel")
+        .classList.add("hidden");
+
+    document.getElementById("quizPanel")
+        .classList.add("hidden");
+
+    document.getElementById("resultPanel")
+        .classList.add("hidden");
+
+    document.getElementById("scorePanel")
+        .classList.add("hidden");
+
+}
+
+
+/*
+===========================================================
+CREATOR
+===========================================================
+*/
+
+function startCreator(){
+
+    const name =
+        document.getElementById("ownerName")
+        .value.trim();
+
+    if(!name){
+
+        alert("Please enter your name 💕");
+
+        return;
+    }
+
+    ownerName = name;
+
+    document.getElementById("creatorNameTitle")
+        .innerText = ownerName;
+
+    hideAll();
+
+    document.getElementById("creatorPanel")
+        .classList.remove("hidden");
+
+}
+
+
+function saveFavouriteQuiz(){
+
+    const selects =
+        document.querySelectorAll(".creator-select");
+
+    favourites = {};
+
+    let complete = true;
+
+    selects.forEach(select=>{
+
+        if(select.value === ""){
+
+            complete = false;
+
+        }else{
+
+            favourites[
+                select.dataset.category
+            ] = Number(select.value);
+
+        }
+
+    });
+
+
+    if(!complete){
+
+        alert(
+            "Please choose your favourite in every category 💖"
+        );
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "bestieOwner",
+        ownerName
+    );
+
+    localStorage.setItem(
+        "bestieFavourites",
+        JSON.stringify(favourites)
+    );
+
+
+    alert(
+        "Your Favourite Quiz is ready! 🎉💕"
+    );
+
+
+    openFriendMode();
+
+}
+
+
+/*
+===========================================================
+FRIEND MODE
+===========================================================
+*/
+
+function openFriendMode(){
+
+    const savedOwner =
+        localStorage.getItem("bestieOwner");
+
+    const savedFavourites =
+        localStorage.getItem("bestieFavourites");
+
+
+    if(!savedOwner || !savedFavourites){
+
+        alert(
+            "First create your Favourite Quiz 💕"
+        );
+
+        return;
+    }
+
+
+    ownerName = savedOwner;
+
+    favourites =
+        JSON.parse(savedFavourites);
+
+
+    document.getElementById(
+        "friendTargetName"
+    ).innerText = ownerName;
+
+
+    hideAll();
+
+    document.getElementById("friendNamePanel")
+        .classList.remove("hidden");
+
+}
+
+
+/*
+===========================================================
+START QUIZ
+===========================================================
+*/
+
+function startFriendQuiz(){
+
+    const name =
+        document.getElementById("playerName")
+        .value.trim();
+
+
+    if(!name){
+
+        alert("Enter your name first 😍");
+
+        return;
+    }
+
+
+    playerName = name;
+
+    score = 0;
+
+    answered = 0;
+
+
+    hideAll();
+
+    document.getElementById("quizPanel")
+        .classList.remove("hidden");
+
+
+    createQuiz();
+
+}
+
+
+/*
+===========================================================
+CREATE QUIZ
+===========================================================
+*/
+
+function createQuiz(){
+
+    const quiz =
+        document.getElementById("quiz");
+
+    quiz.innerHTML = "";
+
+
+    categories.forEach((category,index)=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "question-card";
+
+
+        card.innerHTML = `
+
+            <div class="category">
+                ${category.title}
+            </div>
+
+            <div class="question">
+                ${category.question}
+            </div>
+
+            <div class="options">
+
+                ${category.options.map(
+                    (option,i)=>`
+
+                    <div
+                        class="option"
+                        onclick="
+                            chooseAnswer(
+                                ${index},
+                                ${i},
+                                this
+                            )
+                        "
+                    >
+
+                        <img
+                            src="${option[1]}"
+                            alt="${option[0]}"
+                        >
+
+                        <div class="option-name">
+                            ${option[0]}
+                        </div>
+
+                    </div>
+
+                `).join("")}
+
+            </div>
+        `;
+
+
+        quiz.appendChild(card);
+
+    });
+
+
+    updateProgress();
+
+}
+
+
+/*
+===========================================================
+ANSWER
+===========================================================
+*/
+
+function chooseAnswer(
+    questionIndex,
+    selectedIndex,
+    element
+){
+
+    const card =
+        element.closest(".question-card");
+
+
+    if(card.dataset.answered === "true"){
+        return;
+    }
+
+
+    card.dataset.answered = "true";
+
+
+    const category =
+        categories[questionIndex];
+
+
+    const correctIndex =
+        favourites[category.key];
+
+
+    const options =
+        card.querySelectorAll(".option");
+
+
+    /*
+    Show correct answer
+    */
+
+    options[correctIndex]
+        .classList.add("correct");
+
+
+    /*
+    Correct
+    */
+
+    if(selectedIndex === correctIndex){
+
+        score++;
+
+        element.classList.add("correct");
+
+        createConfetti();
+
+    }
+
+    /*
+    Wrong
+    */
+
+    else{
+
+        element.classList.add("wrong");
+
+    }
+
+
+    answered++;
+
+
+    updateProgress();
+
+
+    if(answered === categories.length){
+
+        setTimeout(
+            showResult,
+            900
+        );
+
+    }
+
+}
+
+
+/*
+===========================================================
+PROGRESS
+===========================================================
+*/
+
+function updateProgress(){
+
+    document.getElementById(
+        "progressText"
+    ).innerText =
+        `${answered} / ${categories.length}`;
+
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        `${(answered/categories.length)*100}%`;
+
+}
+
+
+/*
+===========================================================
+RESULT
+===========================================================
+*/
+
+function showResult(){
+
+    hideAll();
+
+    document.getElementById("resultPanel")
+        .classList.remove("hidden");
+
+
+    document.getElementById(
+        "finalScore"
+    ).innerText =
+        `${score} / ${categories.length}`;
+
+
+    let character = "🥹";
+
+    let message = "";
+
+
+    if(score === categories.length){
+
+        character = "👑💖";
+
+        message =
+            `OMG ${playerName}! 😍 You know ${ownerName} perfectly! You are the ULTIMATE BESTIE! 👯‍♀️💕`;
+
+        for(let i=0;i<60;i++){
+
+            setTimeout(
+                createConfetti,
+                i*25
+            );
+
+        }
+
+    }
+
+    else if(score >= 6){
+
+        character = "🏆🥰";
+
+        message =
+            `Amazing ${playerName}! 🌸 You know ${ownerName} really well! Friendship level: LEGENDARY 💖`;
+
+    }
+
+    else if(score >= 4){
+
+        character = "😍💗";
+
+        message =
+            `Good job ${playerName}! You are becoming a super bestie! 🧸✨`;
+
+    }
+
+    else if(score >= 2){
+
+        character = "😂🌷";
+
+        message =
+            `Not bad ${playerName}! More crazy bestie time needed! 🍕😂`;
+
+    }
+
+    else{
+
+        character = "🥹💔";
+
+        message =
+            `Awww ${playerName}! Time to discover more about ${ownerName}! 💕`;
+
+    }
+
+
+    document.getElementById(
+        "resultCharacter"
+    ).innerText = character;
+
+
+    document.getElementById(
+        "resultMessage"
+    ).innerText = message;
+
+
+    /*
+    SAVE SCORE
+    */
+
+    saveScore();
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/*
+===========================================================
+SAVE SCORE
+===========================================================
+*/
+
+function saveScore(){
+
+    let scores =
+        JSON.parse(
+            localStorage.getItem("bestieScores")
+        ) || [];
+
+
+    scores.push({
+
+        player:playerName,
+
+        score:score,
+
+        total:categories.length,
+
+        percentage:
+            Math.round(
+                (score/categories.length)*100
+            ),
+
+        date:
+            new Date().toLocaleDateString()
+
+    });
+
+
+    /*
+    Highest score first
+    */
+
+    scores.sort(
+        (a,b)=>b.score-a.score
+    );
+
+
+    localStorage.setItem(
+        "bestieScores",
+        JSON.stringify(scores)
+    );
+
+}
+
+
+/*
+===========================================================
+SCORE LIST
+===========================================================
+*/
+
+function showScoreBoard(){
+
+    document.getElementById(
+        "scorePanel"
+    ).classList.remove("hidden");
+
+
+    displayScores();
+
+
+    document.getElementById(
+        "scorePanel"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+function displayScores(){
+
+    const list =
+        document.getElementById("scoreList");
+
+
+    const scores =
+        JSON.parse(
+            localStorage.getItem("bestieScores")
+        ) || [];
+
+
+    if(scores.length === 0){
+
+        list.innerHTML =
+            `<p style="text-align:center">
+                No friends played yet 💕
+             </p>`;
+
+        return;
+    }
+
+
+    list.innerHTML =
+        scores.map((item,index)=>`
+
+            <div class="score-item">
+
+                <span>
+                    ${index===0 ? "👑 " : ""}
+                    ${index+1}. ${item.player}
+                </span>
+
+                <span>
+                    ${item.score}/${item.total}
+                    (${item.percentage}%)
+                </span>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/*
+===========================================================
+CLEAR SCORES
+===========================================================
+*/
+
+function clearScores(){
+
+    if(
+        confirm(
+            "Delete all friend scores? 🥺"
+        )
+    ){
+
+        localStorage.removeItem(
+            "bestieScores"
+        );
+
+        displayScores();
+
+    }
+
+}
+
+
+/*
+===========================================================
+CONFETTI
+===========================================================
+*/
+
+function createConfetti(){
+
+    const emojis = [
+        "💖",
+        "💕",
+        "✨",
+        "🌸",
+        "🎉",
+        "💜",
+        "💙",
+        "💛",
+        "🌈",
+        "⭐",
+        "🦄",
+        "🧸"
+    ];
+
+
+    const item =
+        document.createElement("div");
+
+
+    item.className =
+        "confetti";
+
+
+    item.innerText =
+        emojis[
+            Math.floor(
+                Math.random()*emojis.length
+            )
+        ];
+
+
+    item.style.left =
+        Math.random()*100 + "vw";
+
+
+    item.style.fontSize =
+        (15 + Math.random()*25) + "px";
+
+
+    item.style.animationDuration =
+        (2 + Math.random()*3) + "s";
+
+
+    document.body.appendChild(item);
+
+
+    setTimeout(
+        ()=>item.remove(),
+        5000
+    );
+
+}
+
+</script>
+
+</body>
+</html>
